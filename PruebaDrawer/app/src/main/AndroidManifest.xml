@@ -13,10 +13,16 @@
         android:theme="@style/Theme.PruebaDrawer"
         tools:targetApi="31">
         <activity
+            android:name=".RegistroUsuario"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.PruebaDrawer.NoActionBar">
+            android:theme="@style/Theme.PruebaDrawer.NoActionBar" />
+        <activity
+            android:name=".Principal"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
