@@ -1,8 +1,13 @@
 package ConexionBD;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.sql.Connection;
@@ -13,16 +18,19 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import Adapter.UsuarioAdapter;
 import Entidades.Usuario;
 
 public class DataMainActivity  {
 
     public ListView listaUsuarios;
     public Context contexto;
+    public TextView tv;
 
     public DataMainActivity(ListView lv, Context ct) {
         listaUsuarios = lv;
         contexto = ct;
+
             }
 
     public void ListarUsuarios(){
@@ -50,6 +58,13 @@ public class DataMainActivity  {
 
             }
             catch (Exception e){
+
+                new android.os.Handler(contexto.getMainLooper()).post(() -> {
+                    Toast.makeText(contexto, e.getMessage(), Toast.LENGTH_LONG).show();
+                    Log.d(TAG, e.getMessage() + " ");
+                });
+                Log.e("DatabaseError", "Error en la conexión: ", e);
+
                 e.printStackTrace();
             }
 

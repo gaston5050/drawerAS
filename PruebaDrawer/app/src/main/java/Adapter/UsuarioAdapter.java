@@ -20,21 +20,23 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario> {
 
 
     public UsuarioAdapter(@NonNull Context contexto, @NonNull List<Usuario> objetos) {
-        super(contexto, R.layout.activity_listado_usuarios, objetos);
+        super(contexto, R.layout.list_item_usuarios, objetos);
     }
 
 
     @Override
     public View getView(int posicion, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.activity_listado_usuarios, null);
 
-        TextView txtNombreUsuario = item.findViewById(R.id.txtNombreUsuario);
-        TextView txtEmailUsuario = item.findViewById(R.id.txtEmailUsuario);
-        TextView txtPasswordUsuario = item.findViewById(R.id.txtPasswordUsuario);
-        txtNombreUsuario.setText(getItem(posicion).getNombreUsuario());
-        txtEmailUsuario.setText(getItem(posicion).getEmailUsuario());
-        txtPasswordUsuario.setText(getItem(posicion).getPasswordUsuario());
+        View item = inflater.inflate(R.layout.list_item_usuarios, null);
+
+        TextView txtNombreUsuario = item.findViewById(R.id.txtNombreU);
+        TextView txtEmailUsuario = item.findViewById(R.id.txtEmailU);
+        TextView txtPasswordUsuario = item.findViewById(R.id.txtPasswordU);
+
+        txtNombreUsuario.setText(getItem(posicion).getNombreUsuario() + "");
+        txtEmailUsuario.setText(getItem(posicion).getEmailUsuario()+ "");
+        txtPasswordUsuario.setText(getItem(posicion).getPasswordUsuario()+ "");
 
 
         return item;

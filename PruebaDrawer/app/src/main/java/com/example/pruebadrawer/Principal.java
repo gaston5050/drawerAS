@@ -30,4 +30,9 @@ public class Principal extends AppCompatActivity {
 
         startActivity(intent);
     }
+    public void irListadoUsuarios(View view) {
+        Intent intent = new Intent(this, listadoUsuarios.class);
+        startActivity(intent);
+
+    }
 }

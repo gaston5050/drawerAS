@@ -3,13 +3,17 @@ package com.example.pruebadrawer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import org.w3c.dom.Text;
 
 import ConexionBD.DataMainActivity;
 
@@ -18,6 +22,7 @@ public class listadoUsuarios extends AppCompatActivity {
 
     private Button btnConectar;
     private ListView lvUsuarios;
+    private TextView txtMensa;
 
 
 
@@ -26,7 +31,9 @@ public class listadoUsuarios extends AppCompatActivity {
         setContentView(R.layout.activity_listado_usuarios);
 
         btnConectar = findViewById(R.id.btnConectar);
-        lvUsuarios = findViewById(R.id.lista_usuarios);
+        lvUsuarios = findViewById(R.id.lvusuarios);
+        txtMensa = findViewById(R.id.txtMensaje);
+
         btnConectar.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -43,7 +50,7 @@ public class listadoUsuarios extends AppCompatActivity {
     }
         public void Conectar(){
 
-            DataMainActivity data = new DataMainActivity(lista_usuarios, this);
+            DataMainActivity data = new DataMainActivity(lvUsuarios, this);
             data.ListarUsuarios();
         }
     }
