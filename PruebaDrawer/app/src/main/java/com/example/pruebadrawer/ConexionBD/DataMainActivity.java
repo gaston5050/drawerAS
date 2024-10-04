@@ -1,9 +1,8 @@
-package ConexionBD;
+package com.example.pruebadrawer.ConexionBD;
 
 import static android.content.ContentValues.TAG;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,8 +17,8 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import Adapter.UsuarioAdapter;
-import Entidades.Usuario;
+import com.example.pruebadrawer.Adapter.UsuarioAdapter;
+import com.example.pruebadrawer.Entidades.Usuario;
 
 public class DataMainActivity  {
 
@@ -38,22 +37,24 @@ public class DataMainActivity  {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(()->{
             ArrayList<Usuario> ListaUsuarios = new ArrayList<>();
-
+            Log.d(TAG, "ListarUsuarios: " + DataDB.URLMYSQL);
+            Log.d(TAG, "ListarUsuarios: " + DataDB.USER);
+            Log.d(TAG, "ListarUsuarios: " + DataDB.PASSWORD);
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection conexion = DriverManager.getConnection(DataDB.URLMYSQL, DataDB.USER, DataDB.PASSWORD);
-                Statement st= conexion.createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM Usuarios");
+                Connection conex = DriverManager.getConnection(DataDB.URLMYSQL, DataDB.USER, DataDB.PASSWORD);
+                Statement st= conex.createStatement();
+                ResultSet rs = st.executeQuery("SELECT * FROM usuarios");
 
                 while (rs.next()){
 
-                    Usuario usuario = new Usuario(rs.getString("nombreUsuario"), rs.getString("emailUsuario"), rs.getString("passwordUsuario"));
+                    Usuario usuario = new Usuario(rs.getString("nombre"), rs.getString("email"), rs.getString("password"));
                     ListaUsuarios.add(usuario);
 
                 }
                 rs.close();
                 st.close();
-                conexion.close();
+                conex.close();
 
 
             }

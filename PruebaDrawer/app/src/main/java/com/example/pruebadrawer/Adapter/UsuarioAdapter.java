@@ -1,4 +1,4 @@
-package Adapter;
+package com.example.pruebadrawer.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,7 +14,7 @@ import com.example.pruebadrawer.R;
 
 import java.util.List;
 
-import Entidades.Usuario;
+import com.example.pruebadrawer.Entidades.Usuario;
 
 public class UsuarioAdapter extends ArrayAdapter<Usuario> {
 

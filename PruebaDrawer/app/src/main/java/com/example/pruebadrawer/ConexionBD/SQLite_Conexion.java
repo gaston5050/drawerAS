@@ -1,4 +1,4 @@
-package ConexionBD;
+package com.example.pruebadrawer.ConexionBD;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

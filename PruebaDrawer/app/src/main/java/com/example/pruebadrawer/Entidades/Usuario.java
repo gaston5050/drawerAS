@@ -1,4 +1,4 @@
-package Entidades;
+package com.example.pruebadrawer.Entidades;
 
 public class Usuario {
 
