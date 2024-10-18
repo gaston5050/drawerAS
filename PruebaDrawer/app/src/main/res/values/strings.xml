@@ -11,6 +11,13 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_contacts">Contacts</string>
-    
+
     <string name="txtRegistrarUsuario">Registrarse</string>
+    <string name="txtNombreUsuario">Nombre de Usuario</string>
+    <string name="txtEmailUsuario">Email</string>
+    <string name="txtPasswordUsuario">Contraseña</string>
+    <string name="txtConfirmarPasswordUsuario">Confirmar Contraseña</string>
+
+    <string name="listadoUsuarios">Ir a listado de usuarios</string>
+
 </resources>
