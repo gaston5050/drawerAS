@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -26,11 +27,47 @@ public class DataMainActivity  {
     public Context contexto;
     public TextView tv;
 
+    public DataMainActivity() {
+
+
+    }
+
     public DataMainActivity(ListView lv, Context ct) {
         listaUsuarios = lv;
         contexto = ct;
 
             }
+
+
+
+    public boolean agregarUsuario(String nombre, String email, String password) {
+        ExecutorService ejecutor = Executors.newSingleThreadExecutor();
+        ejecutor.execute(() -> {
+
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conex = DriverManager.getConnection(DataDB.URLMYSQL, DataDB.USER, DataDB.PASSWORD);
+                String sql = "INSERT INTO usuarios (nombre, email, password) VALUES (?,?,?)";
+                PreparedStatement ps = conex.prepareStatement(sql);
+                ps.setString(1, nombre);
+                ps.setString(2, email);
+                ps.setString(3, password);
+                ps.executeUpdate();
+                ps.close();
+                conex.close();
+
+
+
+            } catch (Exception e) {
+                e.getMessage();
+
+                Toast.makeText(contexto, e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+
+        });
+        return true;
+
+    }
 
     public void ListarUsuarios(){
 
