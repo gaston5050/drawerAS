@@ -1,6 +1,7 @@
 package com.example.pruebadrawer;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.pruebadrawer.ConexionBD.DataMainActivity;
 
 import java.text.BreakIterator;
 
@@ -53,8 +56,18 @@ public class RegistroUsuario extends AppCompatActivity {
 
     public void registrarse(View view) {
 
+        if(tEmail.getText().toString().equals("")||tNombre.getText().toString().equals("")||tPass.getText().toString().equals("")){
+            Toast.makeText(this, "Rellene todos los campos", Toast.LENGTH_LONG).show();
+        }
         passwordCoincide();
-        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+        DataMainActivity dMa = new DataMainActivity();
+                if(dMa.agregarUsuario(tNombre.getText().toString(),tEmail.getText().toString(),tPass.getText().toString())){
+                    Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+
+                }
+                else{
+                    Toast.makeText(this, "Error al registrarse", Toast.LENGTH_SHORT).show();
+                }
     }
 
 }
