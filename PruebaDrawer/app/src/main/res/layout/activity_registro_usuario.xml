@@ -39,13 +39,15 @@
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:gravity="center"
+                    android:text="Perfil"
+                    android:textSize="24sp" />
             </LinearLayout>
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/txtNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -53,7 +55,7 @@
                 android:text="@string/txtNombreUsuario" />
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/txtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -77,9 +79,10 @@
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnRegistrarse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="registrarse"
                 android:text="@string/txtRegistrarUsuario" />
 
         </LinearLayout>
