@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null)
                         .setAnchorView(R.id.fab).show();
+                //oka
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
